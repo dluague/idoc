@@ -3,13 +3,14 @@
 namespace OVAC\IDoc;
 
 use Faker\Factory;
+use ReflectionClass;
+use ReflectionMethod;
+use Illuminate\Support\Str;
 use Illuminate\Routing\Route;
 use Mpociot\Reflection\DocBlock;
 use Mpociot\Reflection\DocBlock\Tag;
 use OVAC\IDoc\Tools\ResponseResolver;
 use OVAC\IDoc\Tools\Traits\ParamHelpers;
-use ReflectionClass;
-use ReflectionMethod;
 
 class IDocGenerator
 {
@@ -289,7 +290,7 @@ class IDocGenerator
                 return $faker->boolean();
             },
             'string' => function () use ($faker) {
-                return str_random();
+                return Str::random();
             },
             'array' => function () {
                 return '[]';
